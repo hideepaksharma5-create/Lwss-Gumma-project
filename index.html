@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="LWSS Gumma and Drabla Pumping Station information portal for the New Gumma double-stage pumping route serving the wider Shimla water-supply system.">
+  <title>LWSS Gumma | Drabla Pumping Station</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <noscript>
+    <style>
+      .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      @media (max-width: 760px) {
+        .hamburger-btn {
+          display: none !important;
+        }
+
+        .nav-menu {
+          display: flex !important;
+          position: static !important;
+          transform: none !important;
+          margin-top: 0.75rem;
+        }
+      }
+    </style>
+  </noscript>
+</head>
+
+<body>
+  <div class="top-utility-bar">
+    <div class="container top-utility-inner">
+      <span>IPH Department • Drabla Gumma</span>
+      <span>LWSS Gumma • Bulk Water Supply</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Primary navigation">
+        <a class="brand-logo" href="#home" aria-label="LWSS Gumma Drabla Pumping Station home">
+          <span class="brand-mark" aria-hidden="true">💧</span>
+          <span class="brand-copy">
+            <span class="brand-title">LWSS GUMMA</span>
+            <span class="brand-subtitle">DRABLA PUMPING STATION</span>
+          </span>
+        </a>
+
+        <button class="hamburger-btn" id="hamburgerBtn" type="button" aria-label="Toggle navigation menu"
+          aria-controls="navMenu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a class="nav-link active" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#water-system">Water System</a></li>
+          <li><a class="nav-link" href="#machinery">Machinery</a></li>
+          <li><a class="nav-link" href="#history">History</a></li>
+          <li><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li><a class="nav-link" href="#sources">Sources</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Toggle dark mode"
+          title="Switch between dark and light theme">
+          <span class="theme-icon sun-icon" aria-hidden="true">☀️</span>
+          <span class="theme-icon moon-icon" aria-hidden="true">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section" id="home" aria-labelledby="hero-title">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-content reveal-on-scroll">
+          <p class="hero-kicker">HISTORIC HILL-WATER ENGINEERING • SHIMLA</p>
+          <h1 id="hero-title">Drabla Pumping Station</h1>
+          <p class="hero-subtitle">Second-stage pumping of the New Gumma Line</p>
+          <p class="hero-copy">
+            A dedicated digital record of the pumping station, machinery, rising-main infrastructure, engineering
+            history and water-supply route connecting Gumma, Drabla, Craignano and the wider Shimla system.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#water-system">Explore the System <span aria-hidden="true">→</span></a>
+            <a class="btn btn-secondary" href="#gallery">View Facility Photos</a>
+          </div>
+          <p class="research-note">Research-based content • Technical figures are labelled by source/date</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts-section" aria-label="Key facts">
+      <div class="container">
+        <div class="key-facts-grid reveal-on-scroll">
+          <article class="fact-card">
+            <span class="fact-metric historical">1921–22</span>
+            <h2>Old Gumma WTP installation</h2>
+            <p>Historical sources describe the original Old Gumma water-treatment works and pumping route toward
+              Craignano.</p>
+          </article>
+          <article class="fact-card">
+            <span class="fact-metric">1981–82</span>
+            <h2>New Gumma &amp; Drabla augmentation</h2>
+            <p>Documented augmentation created the New Gumma line with Drabla as the intermediate pumping station.</p>
+          </article>
+          <article class="fact-card">
+            <span class="fact-metric">24.06 MLD</span>
+            <h2>Documented design capacity</h2>
+            <p>Shown as documented design/installed capacity for the Gumma scheme, not current production.</p>
+          </article>
+          <article class="fact-card">
+            <span class="fact-metric">2-Stage</span>
+            <h2>Gumma → Drabla → Craignano</h2>
+            <p>The New Gumma route separates the hill lift into Stage-I and Stage-II pumping.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="section-copy reveal-on-scroll">
+          <p class="section-tag">Facility Overview</p>
+          <h2>A key link in the New Gumma pumping chain</h2>
+          <p>
+            SJPNL documentation describes the New Gumma Water Treatment Plant as having a two-stage arrangement. Stage-I
+            pumping carries treated water from New Gumma to Drabla; Stage-II pumping then carries water from Drabla to
+            Craignano Reservoir.
+          </p>
+          <p>
+            From Craignano, the documented route proceeds toward Sanjauli and the wider Shimla system. This portal
+            combines official utility information, Himachal Pradesh government documents, World Bank technical material
+            and historical/academic research.
+          </p>
+
+          <div class="stage-list" aria-label="New Gumma pumping stages">
+            <div>
+              <strong>Stage-I</strong>
+              <span>New Gumma → Drabla</span>
+            </div>
+            <div>
+              <strong>Stage-II</strong>
+              <span>Drabla → Craignano Reservoir</span>
+            </div>
+            <div>
+              <strong>Supply route</strong>
+              <span>Craignano → Sanjauli / Shimla</span>
+            </div>
+          </div>
+
+          <aside class="info-callout">
+            Current pump status, current production, present-day operating hours and official departmental contact
+            details should be updated from live departmental records before public release.
+          </aside>
+        </div>
+
+        <aside class="facility-profile-card reveal-on-scroll" aria-label="Facility profile">
+          <p class="profile-label">LWSS GUMMA</p>
+          <h3>Drabla Pumping Station</h3>
+          <p class="profile-subtitle">Second Stage • New Gumma Line</p>
+          <dl class="profile-list">
+            <div>
+              <dt>System</dt>
+              <dd>Bulk water supply</dd>
+            </div>
+            <div>
+              <dt>Downstream</dt>
+              <dd>Craignano Reservoir</dd>
+            </div>
+            <div>
+              <dt>Supply route</dt>
+              <dd>Sanjauli / Shimla</dd>
+            </div>
+            <div>
+              <dt>Region</dt>
+              <dd>Shimla, Himachal Pradesh</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section engineering-section" id="water-system">
+      <div class="container">
+        <div class="section-heading centered reveal-on-scroll">
+          <p class="section-tag">Hydraulic Transmission</p>
+          <h2>New Gumma Double-Stage Pumping System</h2>
+          <p>The documented route separates the lift into stages, with Drabla serving as the intermediate pumping
+            station between New Gumma and Craignano.</p>
+        </div>
+
+        <div class="flow-map reveal-on-scroll" aria-label="New Gumma to Shimla water route">
+          <article class="flow-node">
+            <span class="node-number">01</span>
+            <span class="node-icon" aria-hidden="true">💧</span>
+            <h3>NEW GUMMA WTP</h3>
+            <p>Stage-I source and treatment works</p>
+          </article>
+
+          <div class="flow-connector" aria-hidden="true">
+            <span>STAGE I</span>
+            <strong>→</strong>
+          </div>
+
+          <article class="flow-node highlighted">
+            <span class="node-number">02</span>
+            <span class="node-icon" aria-hidden="true">⚙️</span>
+            <h3>DRABLA PUMPING STATION</h3>
+            <p><strong>Stage-II pumping</strong></p>
+          </article>
+
+          <div class="flow-connector" aria-hidden="true">
+            <span>STAGE II</span>
+            <strong>→</strong>
+          </div>
+
+          <article class="flow-node">
+            <span class="node-number">03</span>
+            <span class="node-icon" aria-hidden="true">🏔️</span>
+            <h3>CRAIGNANO RESERVOIR</h3>
+            <p>Downstream storage / transmission</p>
+          </article>
+
+          <div class="flow-connector" aria-hidden="true">
+            <span>SUPPLY</span>
+            <strong>→</strong>
+          </div>
+
+          <article class="flow-node">
+            <span class="node-number">04</span>
+            <span class="node-icon" aria-hidden="true">🚰</span>
+            <h3>SANJAULI / SHIMLA</h3>
+            <p>Wider water distribution system</p>
+          </article>
+        </div>
+
+        <aside class="route-card reveal-on-scroll">
+          <div>
+            <p class="route-label">Separate Documented Route</p>
+            <h3>Nauti Khad WTP → Mashobra → Sanjauli</h3>
+            <p>SJPNL identifies Nauti Khad WTP as a separate facility constructed in 2006–07. It is presented separately
+              from the New Gumma → Drabla → Craignano route.</p>
+          </div>
+          <div class="route-chips" aria-label="Nauti Khad route">
+            <span>Nauti Khad WTP</span>
+            <span>→</span>
+            <span>Mashobra</span>
+            <span>→</span>
+            <span>Sanjauli</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="machinery">
+      <div class="container">
+        <div class="section-heading centered reveal-on-scroll">
+          <p class="section-tag">Engineering &amp; Machinery</p>
+          <h2>Power, Pumps &amp; High-Head Transmission</h2>
+          <p>Detailed breakdown of Drabla Stage pumping units (Pumps 1, 2 &amp; 3 on bed and 4th pump maintenance
+            status), electrical control panels, and rising main infrastructure.</p>
+        </div>
+
+        <div class="machinery-grid reveal-on-scroll">
+          <article class="machinery-card">
+            <div class="card-head">
+              <span aria-hidden="true">⚡</span>
+              <h3>Drabla Pumping Units (Pumps 1, 2, 3 &amp; 4)</h3>
+            </div>
+            <p>The Drabla Pumping Station arrangement features dedicated high-capacity multi-stage centrifugal pump
+              units supplying 24x7 bulk water transmission:</p>
+            <ul class="plain-list">
+              <li><strong>Pump No. 1:</strong> Installed &amp; active on bed</li>
+              <li><strong>Pump No. 2:</strong> Installed &amp; active on bed</li>
+              <li><strong>Pump No. 3:</strong> Installed &amp; active on bed</li>
+              <li style="color: var(--primary); font-weight: 700;"><strong>Pump No. 4:</strong> 4th pump is not in bed
+                because the pump is in maintenance section for servicing</li>
+            </ul>
+            <dl class="spec-grid" style="margin-top: 1rem;">
+              <div>
+                <dt>Pumps on Bed</dt>
+                <dd>3 Units (No. 1, 2, 3)</dd>
+              </div>
+              <div>
+                <dt>Maintenance</dt>
+                <dd>4th Pump</dd>
+              </div>
+              <div>
+                <dt>Rating / Unit</dt>
+                <dd>~ 925 HP / 690 kW</dd>
+              </div>
+              <div>
+                <dt>Design Head</dt>
+                <dd>~ 700 m</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="machinery-card">
+            <div class="card-head">
+              <span aria-hidden="true">🎛️</span>
+              <h3>Electrical Control Panels</h3>
+            </div>
+            <p>Documented high-voltage electrical control infrastructure powering and protecting the Drabla pumping
+              machinery:</p>
+            <ul class="plain-list">
+              <li><strong>Panel No. 1 &amp; No. 2:</strong> Primary pump motor drive control panels</li>
+              <li><strong>Panel No. 3 &amp; No. 4:</strong> High-tension breaker panels &amp; switching units</li>
+              <li>Measurement, current transformers &amp; protection relays</li>
+              <li>Central operator monitoring desk</li>
+            </ul>
+          </article>
+
+          <article class="machinery-card">
+            <div class="card-head">
+              <span aria-hidden="true">🔧</span>
+              <h3>Rising Main &amp; Header Valves</h3>
+            </div>
+            <p>High-pressure steel rising main transmission network connecting Drabla Stage pumps to the Craignano
+              Reservoir:</p>
+            <ul class="plain-list">
+              <li>Pumps 1, 2 &amp; 3 main suction &amp; discharge manifolds</li>
+              <li>Heavy-duty non-return delivery valves</li>
+              <li>Automatic air release &amp; surge protection vessels</li>
+              <li>Ridge alignment rising main pipeline</li>
+            </ul>
+          </article>
+
+          <article class="machinery-card">
+            <div class="card-head">
+              <span aria-hidden="true">🛠️</span>
+              <h3>Maintenance &amp; Overhaul Section</h3>
+            </div>
+            <p>Active workshop and maintenance facilities for servicing plant machinery and electrical infrastructure:
+            </p>
+            <ul class="plain-list">
+              <li><strong>4th Pump Status:</strong> <em>4th pump is not in bed because the pump is in maintenance
+                  section.</em></li>
+              <li>Motor stator rewinding &amp; rotor alignment</li>
+              <li>Electrical breaker panel servicing</li>
+              <li>Suction/delivery valve gasket replacements</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="table-card reveal-on-scroll">
+          <h3>Technical Reference Table</h3>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Station</th>
+                  <th scope="col">Pumps on Bed</th>
+                  <th scope="col">Maintenance Unit</th>
+                  <th scope="col">Capacity</th>
+                  <th scope="col">Flow</th>
+                  <th scope="col">Head</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Old Gumma</th>
+                  <td>4</td>
+                  <td>None</td>
+                  <td>~ 1,675 HP / 1,250 kW</td>
+                  <td>~ 206 m³/h</td>
+                  <td>~ 1,480 m</td>
+                </tr>
+                <tr>
+                  <th scope="row">New Gumma</th>
+                  <td>7</td>
+                  <td>Routine rotation</td>
+                  <td>~ 925 HP / 690 kW</td>
+                  <td>~ 228 m³/h</td>
+                  <td>~ 700 m</td>
+                </tr>
+                <tr class="table-highlight">
+                  <th scope="row">Drabla Stage</th>
+                  <td><strong>3 Units</strong> (Pump No. 1, 2, 3)</td>
+                  <td><strong style="color: var(--primary);">4th Pump</strong> (In Maintenance Section)</td>
+                  <td>~ 925 HP / 690 kW</td>
+                  <td>~ 228 m³/h</td>
+                  <td>~ 700 m</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">
+            * Note: At Drabla Stage, Pump Units No. 1, No. 2, and No. 3 are active on bed; 4th pump is not in bed
+            because the pump is in maintenance section for servicing &amp; overhaul.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light-section" id="old-gumma">
+      <div class="container old-gumma-grid">
+        <div class="section-copy reveal-on-scroll">
+          <p class="section-tag gold">Historic Water Works</p>
+          <h2>Old Gumma &amp; the historic rising-main network</h2>
+          <p>Historical sources describe Old Gumma WTP as installed in 1921–22 with single-stage sand filtration and a
+            historic pumping arrangement connected toward Craignano.</p>
+          <ul class="plain-list emphasized">
+            <li>Old Gumma WTP installed in 1921–22</li>
+            <li>Single-stage sand filtration</li>
+            <li>Historic pumping arrangement</li>
+            <li>Connection toward Craignano</li>
+            <li>Onward supply toward Sanjauli</li>
+            <li>Historical maintenance and replacement of Old Gumma rising mains</li>
+          </ul>
+          <p class="accuracy-note">No specific pipe size is presented here as the current complete inventory.</p>
+        </div>
+        <aside class="historic-badge reveal-on-scroll" aria-label="Old Gumma historic badge">
+          <span>OLD GUMMA</span>
+          <strong>1921–22</strong>
+          <p>Historical scheme milestone</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="history">
+      <div class="container">
+        <div class="section-heading centered reveal-on-scroll">
+          <p class="section-tag gold">Historical Timeline</p>
+          <h2>Gumma Water-Supply Development</h2>
+          <p>Historical and project milestones are separated from current operational claims.</p>
+        </div>
+
+        <div class="timeline reveal-on-scroll">
+          <article class="timeline-item">
+            <time>1875</time>
+            <h3>Early organised Shimla water supply</h3>
+            <p>Historical/academic sources describe early organised water-supply efforts for Shimla before the later
+              high-head Gumma lift schemes.</p>
+          </article>
+          <article class="timeline-item">
+            <time>1919–1924</time>
+            <h3>Gumma water-lift development</h3>
+            <p>Historical sources describe planning and development of Gumma/Nauti Khad water-lift infrastructure during
+              this period.</p>
+          </article>
+          <article class="timeline-item">
+            <time>1921–22</time>
+            <h3>Old Gumma WTP installed</h3>
+            <p>SJPNL documentation identifies the Old Gumma WTP installation period and its route toward Craignano and
+              Sanjauli.</p>
+          </article>
+          <article class="timeline-item">
+            <time>1924</time>
+            <h3>Nauti Khad augmentation</h3>
+            <p>Historical/academic material associates Nauti Khad augmentation with the wider expansion of Shimla's
+              hill-water supply network.</p>
+          </article>
+          <article class="timeline-item">
+            <time>1981–82</time>
+            <h3>Major Gumma–Drabla augmentation</h3>
+            <p>SJPNL documentation identifies New Gumma and the two-stage pumping route, including Drabla Pumping
+              Station, in this augmentation period.</p>
+          </article>
+          <article class="timeline-item">
+            <time>2006–07</time>
+            <h3>Nauti Khad WTP</h3>
+            <p>SJPNL identifies Nauti Khad WTP as a separate facility, with water routed through Mashobra toward
+              Sanjauli.</p>
+          </article>
+          <article class="timeline-item">
+            <time>2024–26</time>
+            <h3>Modernisation, maintenance &amp; 24×7 development</h3>
+            <p>SJPNL publishes project and development work related to 24×7 water supply and continuous pressurised
+              systems; these are modern utility initiatives, not historical Gumma operating claims.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light-section" id="modernisation">
+      <div class="container modernisation-grid">
+        <div class="section-copy reveal-on-scroll">
+          <p class="section-tag">24×7 Development</p>
+          <h2>Historical infrastructure and modern service upgrades</h2>
+          <p>SJPNL publishes ongoing development and project work related to 24×7 water supply and continuous
+            pressurised water-supply systems in Shimla.</p>
+          <p>The Gumma and Drabla material on this portal documents historical and bulk-transmission infrastructure. It
+            does not claim current 24×7 coverage or live operating status for any plant or pumping station.</p>
+        </div>
+
+        <div class="dashboard-panel reveal-on-scroll" aria-label="Modernisation labels, not live readings">
+          <div class="dashboard-tile">
+            <span>24×7 DEVELOPMENT</span>
+            <strong>Project Work</strong>
+          </div>
+          <div class="dashboard-tile">
+            <span>Continuous Pressurised Supply</span>
+            <strong>Distribution Upgrade</strong>
+          </div>
+          <div class="dashboard-tile">
+            <span>System Modernisation</span>
+            <strong>No Live Readings</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-heading centered reveal-on-scroll">
+          <p class="section-tag">Facility Gallery</p>
+          <h2>Drabla Pumping Station Photographs &amp; Technical Documentation</h2>
+          <p>Comprehensive record of supplied facility photographs, machinery installations (Pump Unit No. 1 on Bed No.
+            1, Pump Unit No. 2 on Bed No. 2, Pump Unit No. 3 on Bed No. 3, &amp; 4th pump in maintenance), electrical
+            control panels (Panels No. 1, 2, 3 &amp; 4), Drabla Stage bulk water storage tanks, and official technical
+            process schematics.</p>
+        </div>
+
+        <div class="gallery-filters reveal-on-scroll" role="tablist" aria-label="Gallery Filters">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Photos (22)</button>
+          <button class="filter-btn" data-filter="machinery" role="tab" aria-selected="false">Pumps &amp; Control Panels
+            (8)</button>
+          <button class="filter-btn" data-filter="facility" role="tab" aria-selected="false">Site &amp; Campus
+            (12)</button>
+          <button class="filter-btn" data-filter="schematics" role="tab" aria-selected="false">Schematics &amp;
+            Flowcharts (2)</button>
+        </div>
+
+        <div class="gallery-grid reveal-on-scroll" id="galleryGrid">
+          <figure class="gallery-card" data-category="machinery" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Electrical Control Panel - Panel No. 1 & Panel No. 2 photo"
+            data-lightbox="images/02-drabla-control-panel.jpg"
+            data-caption="Drabla Stage Electrical Control Panel - Panel No. 1 & Panel No. 2">
+            <div class="gallery-img-wrapper">
+              <img src="images/02-drabla-control-panel.jpg"
+                alt="Drabla Stage electrical control panel board displaying breaker panels No. 1 and No. 2"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Electrical Control Panel - Panel No. 1 & Panel No. 2</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Pumping Station - Main Building & Hilltop Campus View photo"
+            data-lightbox="images/03-drabla-pump-house.jpg"
+            data-caption="Drabla Stage Pumping Station - Main Building & Hilltop Campus View">
+            <div class="gallery-img-wrapper">
+              <img src="images/03-drabla-pump-house.jpg"
+                alt="Exterior view of Drabla Stage Pumping Station building situated in hilltop terrain" loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Pumping Station - Main Building & Hilltop Campus View</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Campus - Entrance Approach & Building Exterior photo"
+            data-lightbox="images/04-site-visit-01.jpg"
+            data-caption="Drabla Stage Campus - Entrance Approach & Building Exterior">
+            <div class="gallery-img-wrapper">
+              <img src="images/04-site-visit-01.jpg"
+                alt="Drabla Stage campus approach showing plant building exterior and transformer yard" loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Campus - Entrance Approach & Building Exterior</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="machinery" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Machinery - High-Pressure Delivery Valves & Header Pipe (Pumps 1, 2 & 3) photo"
+            data-lightbox="images/05-site-visit-02.jpg"
+            data-caption="Drabla Stage Machinery - High-Pressure Delivery Valves & Header Pipe (Pumps 1, 2 & 3)">
+            <div class="gallery-img-wrapper">
+              <img src="images/05-site-visit-02.jpg"
+                alt="Heavy duty delivery valves and header pipe assembly for Pumps 1, 2, and 3 inside Drabla pump house"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Machinery - High-Pressure Delivery Valves & Header Pipe (Pumps 1, 2 & 3)
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="machinery" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Pump House - Pump Unit No. 2 (Installed on Bed No. 2) photo"
+            data-lightbox="images/06-site-visit-03.jpg"
+            data-caption="Drabla Stage Pump House - Pump Unit No. 2 (Installed on Bed No. 2)">
+            <div class="gallery-img-wrapper">
+              <img src="images/06-site-visit-03.jpg"
+                alt="Side view of green centrifugal Pump Unit No. 2 and blue drive motor mounted on concrete Bed No. 2"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Pump House - Pump Unit No. 2 (Installed on Bed No. 2)</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="machinery" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Control Room - Operator Monitoring Desk & Auxiliary Panel Board photo"
+            data-lightbox="images/07-site-visit-04.jpg"
+            data-caption="Drabla Stage Control Room - Operator Monitoring Desk & Auxiliary Panel Board">
+            <div class="gallery-img-wrapper">
+              <img src="images/07-site-visit-04.jpg"
+                alt="Operator monitoring desk and electrical distribution breakers inside Drabla Stage plant"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Control Room - Operator Monitoring Desk & Auxiliary Panel Board</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Campus - Plant Structural Elevation & Paved Courtyard View photo"
+            data-lightbox="images/08-site-visit-05.jpg"
+            data-caption="Drabla Stage Campus - Plant Structural Elevation & Paved Courtyard View">
+            <div class="gallery-img-wrapper">
+              <img src="images/08-site-visit-05.jpg"
+                alt="Drabla Stage plant building structural elevation and surrounding paved courtyard" loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Campus - Plant Structural Elevation & Paved Courtyard View</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="machinery" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Switchyard - Outdoor Substation & High-Voltage Transformers photo"
+            data-lightbox="images/09-site-visit-06.jpg"
+            data-caption="Drabla Stage Switchyard - Outdoor Substation & High-Voltage Transformers">
+            <div class="gallery-img-wrapper">
+              <img src="images/09-site-visit-06.jpg"
+                alt="Outdoor electrical substation transformers powering Drabla Stage pumping machinery" loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Switchyard - Outdoor Substation & High-Voltage Transformers</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Gumma WTP Infrastructure - Aeration Cascade & Primary Clarifier Basins photo"
+            data-lightbox="images/10-site-visit-07.jpg"
+            data-caption="Gumma WTP Infrastructure - Aeration Cascade & Primary Clarifier Basins">
+            <div class="gallery-img-wrapper">
+              <img src="images/10-site-visit-07.jpg"
+                alt="Gumma Water Treatment Plant aeration cascade and primary clarifier basin" loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Gumma WTP Infrastructure - Aeration Cascade & Primary Clarifier Basins</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="machinery" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Electrical Control Panel Board - Panel No. 3 & Panel No. 4 photo"
+            data-lightbox="images/11-site-visit-08.jpg"
+            data-caption="Drabla Stage Electrical Control Panel Board - Panel No. 3 & Panel No. 4">
+            <div class="gallery-img-wrapper">
+              <img src="images/11-site-visit-08.jpg"
+                alt="Indoor electrical control panel board displaying HT breaker panels No. 3 and No. 4 inside pump house"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Electrical Control Panel Board - Panel No. 3 & Panel No. 4</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Gumma Raw Water Intake Weir & Sedimentation Basins photo"
+            data-lightbox="images/12-site-visit-09.jpg"
+            data-caption="Gumma Raw Water Intake Weir & Sedimentation Basins">
+            <div class="gallery-img-wrapper">
+              <img src="images/12-site-visit-09.jpg"
+                alt="Raw water intake weir with heavy sedimentation basins and overflow gates" loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Gumma Raw Water Intake Weir & Sedimentation Basins</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="machinery" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Pump House - Pump Unit No. 3 (Installed on Bed No. 3) photo"
+            data-lightbox="images/13-site-visit-10.jpg"
+            data-caption="Drabla Stage Pump House - Pump Unit No. 3 (Installed on Bed No. 3)">
+            <div class="gallery-img-wrapper">
+              <img src="images/13-site-visit-10.jpg"
+                alt="Close up view of green multi-stage centrifugal Pump Unit No. 3 and suction manifold mounted on Bed No. 3"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Pump House - Pump Unit No. 3 (Installed on Bed No. 3)</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Water Supply Tank - Bulk Storage & Craignano Lift Header photo"
+            data-lightbox="images/14-site-visit-11.jpg"
+            data-caption="Drabla Stage Water Supply Tank - Bulk Storage & Craignano Lift Header">
+            <div class="gallery-img-wrapper">
+              <img src="images/14-site-visit-11.jpg"
+                alt="Drabla Stage water supply storage tank on paved campus grounds receiving water lifted from Gumma for 24x7 pumping to Craignano"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Water Supply Tank - Bulk Storage & Craignano Lift Header</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Storage Tank - Intermediate Balancing Reservoir (24x7 Pumping to Craignano) photo"
+            data-lightbox="images/15-site-visit-12.jpg"
+            data-caption="Drabla Stage Storage Tank - Intermediate Balancing Reservoir (24x7 Pumping to Craignano)">
+            <div class="gallery-img-wrapper">
+              <img src="images/15-site-visit-12.jpg"
+                alt="Close up view of Drabla Stage cylindrical water storage tank with access ladder and suction pipe header feeding 24x7 pumps to Craignano"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Storage Tank - Intermediate Balancing Reservoir (24x7 Pumping to Craignano)
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Campus - Main Pump House Building Entrance & Staircase photo"
+            data-lightbox="images/16-site-visit-13.jpg"
+            data-caption="Drabla Stage Campus - Main Pump House Building Entrance & Staircase">
+            <div class="gallery-img-wrapper">
+              <img src="images/16-site-visit-13.jpg"
+                alt="Front view of Drabla Stage pump house building entrance with blue doors and access staircase"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Campus - Main Pump House Building Entrance & Staircase</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Campus - Main Entrance Courtyard & Paved Walkway photo"
+            data-lightbox="images/17-site-visit-14.jpg"
+            data-caption="Drabla Stage Campus - Main Entrance Courtyard & Paved Walkway">
+            <div class="gallery-img-wrapper">
+              <img src="images/17-site-visit-14.jpg"
+                alt="Wide view of Drabla Stage campus entrance courtyard with paved walkways and surrounding hills"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Campus - Main Entrance Courtyard & Paved Walkway</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Campus - Side Premises & Electrical Substation Yard photo"
+            data-lightbox="images/18-site-visit-15.jpg"
+            data-caption="Drabla Stage Campus - Side Premises & Electrical Substation Yard">
+            <div class="gallery-img-wrapper">
+              <img src="images/18-site-visit-15.jpg"
+                alt="Side elevation of Drabla Stage pump house building showing paved campus ground and electrical pole structure"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Campus - Side Premises & Electrical Substation Yard</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Drabla Stage Campus - Main Perimeter Entry Gate & Access Road Bridge photo"
+            data-lightbox="images/19-site-visit-16.jpg"
+            data-caption="Drabla Stage Campus - Main Perimeter Entry Gate & Access Road Bridge">
+            <div class="gallery-img-wrapper">
+              <img src="images/19-site-visit-16.jpg"
+                alt="Access road bridge and entrance gate leading into Drabla Stage Pumping Station campus"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Drabla Stage Campus - Main Perimeter Entry Gate & Access Road Bridge</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Gumma Water Pumping Stage - Official Visit by Mr. Suresh Bhardwaj photo"
+            data-lightbox="images/20-gumma-wtp-visit-pumphall.jpg"
+            data-caption="Gumma Water Pumping Stage - Official Visit by Mr. Suresh Bhardwaj">
+            <div class="gallery-img-wrapper">
+              <img src="images/20-gumma-wtp-visit-pumphall.jpg"
+                alt="Mr. Suresh Bhardwaj visiting Gumma Water Pumping Stage pump hall with officials and staff"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Gumma Water Pumping Stage - Official Visit by Mr. Suresh Bhardwaj</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="facility" tabindex="0" role="button"
+            aria-label="Open Gumma Water Treatment Plant - Overview of Settling & Filtration Complex photo"
+            data-lightbox="images/21-gumma-wtp-visit-tanks.jpg"
+            data-caption="Gumma Water Treatment Plant - Overview of Settling & Filtration Complex">
+            <div class="gallery-img-wrapper">
+              <img src="images/21-gumma-wtp-visit-tanks.jpg"
+                alt="Overview of Gumma water treatment plant settling tanks and filtration beds" loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Gumma Water Treatment Plant - Overview of Settling & Filtration Complex</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="schematics" tabindex="0" role="button"
+            aria-label="Open Gumma WTP - Technical Treatment Process Flowchart photo"
+            data-lightbox="images/22-gumma-wtp-flowchart.png"
+            data-caption="Gumma WTP - Technical Treatment Process Flowchart">
+            <div class="gallery-img-wrapper">
+              <img src="images/22-gumma-wtp-flowchart.png"
+                alt="Technical process flowchart illustrating raw water intake, clarification, filtration and disinfection"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>Gumma WTP - Technical Treatment Process Flowchart</figcaption>
+          </figure>
+
+          <figure class="gallery-card" data-category="schematics" tabindex="0" role="button"
+            aria-label="Open World Bank Funded Bulk Water Supply Route & Pumping Stage Schematic photo"
+            data-lightbox="images/23-world-bank-wtp-schematic.png"
+            data-caption="World Bank Funded Bulk Water Supply Route & Pumping Stage Schematic">
+            <div class="gallery-img-wrapper">
+              <img src="images/23-world-bank-wtp-schematic.png"
+                alt="Engineering schematic diagram of World Bank funded bulk water supply transmission pipeline and pump stages"
+                loading="lazy">
+              <span class="gallery-overlay" aria-hidden="true">View</span>
+            </div>
+            <figcaption>World Bank Funded Bulk Water Supply Route & Pumping Stage Schematic</figcaption>
+          </figure>
+        </div>
+
+        <p class="photo-credit-note">Photo credit: project owner / supplied site documentation photographs</p>
+      </div>
+    </section>
+
+    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-modal="true"
+      aria-label="Facility photo viewer">
+      <div class="lightbox-content">
+        <button class="lightbox-close-btn" id="lightboxCloseBtn" type="button"
+          aria-label="Close image viewer">&times;</button>
+        <button class="lightbox-nav-btn lightbox-prev-btn" id="lightboxPrevBtn" type="button"
+          aria-label="Previous image">&#10094;</button>
+        <div class="lightbox-img-container">
+          <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <button class="lightbox-nav-btn lightbox-next-btn" id="lightboxNextBtn" type="button"
+          aria-label="Next image">&#10095;</button>
+        <div class="lightbox-meta">
+          <p class="lightbox-caption" id="lightboxCaption"></p>
+          <span class="lightbox-counter" id="lightboxCounter">1 / 22</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section light-section" id="sources">
+      <div class="container">
+        <div class="section-heading centered reveal-on-scroll">
+          <p class="section-tag">Research Sources</p>
+          <h2>Source Cards &amp; Documented Records</h2>
+          <p>Links are provided for research review. Technical and historical claims should be checked against the cited
+            source/date before public release.</p>
+        </div>
+
+        <div class="sources-grid reveal-on-scroll">
+          <article class="source-card">
+            <span class="source-type">Utility information</span>
+            <h3>SJPNL — Water Treatment Plants</h3>
+            <p>Official utility page describing Old Gumma, New Gumma, Drabla pumping stage and Nauti Khad routing.</p>
+            <a href="https://sjpnl.com/Contents.aspx?m=2&s=8" target="_blank" rel="noopener noreferrer">Open source
+              ↗</a>
+          </article>
+
+          <article class="source-card">
+            <span class="source-type">Government PDF</span>
+            <h3>Himachal Pradesh Government — Shimla Water Supply Scheme Augmentation History</h3>
+            <p>Government document used for historical context and augmentation references.</p>
+            <a href="https://mcslogin.hp.gov.in/SecureFileStructure/Notices/19dabc39-19bc-4781-8f4f-4eb776a8c18a.pdf"
+              target="_blank" rel="noopener noreferrer">Open source ↗</a>
+          </article>
+
+          <article class="source-card">
+            <span class="source-type">Infrastructure report</span>
+            <h3>Himachal Environment Master Plan</h3>
+            <p>Baseline infrastructure material relevant to Shimla water supply and planning context.</p>
+            <a href="https://dest.hp.gov.in/sites/default/files/01_Baseline_Infrastructure_2.pdf" target="_blank"
+              rel="noopener noreferrer">Open source ↗</a>
+          </article>
+
+          <article class="source-card">
+            <span class="source-type">Technical audit</span>
+            <h3>World Bank — Shimla Energy &amp; Water Audit</h3>
+            <p>Audit terms and technical scope for energy, pumping, flow, metering and bulk-water system review.</p>
+            <a href="https://thedocs.worldbank.org/en/doc/135671561058445999-0090022019/original/ToREnergyandWaterAuditShimla.pdf"
+              target="_blank" rel="noopener noreferrer">Open source ↗</a>
+          </article>
+
+          <article class="source-card">
+            <span class="source-type">Utility archive</span>
+            <h3>SJPNL — ITI Shimla Visit to Gumma Pump House</h3>
+            <p>Public news/event archive for educational visit documentation connected with Gumma pump-house facilities.
+            </p>
+            <a href="https://sjpnl.com/NewsEvents_detail.aspx?id=1008" target="_blank" rel="noopener noreferrer">Open
+              source ↗</a>
+          </article>
+
+          <article class="source-card">
+            <span class="source-type">Project records</span>
+            <h3>SJPNL — Projects / 24×7 Works</h3>
+            <p>Public project gallery for ongoing 24×7 and continuous pressurised water-supply development work.</p>
+            <a href="https://sjpnl.com/Albums.aspx?m=4&s=36" target="_blank" rel="noopener noreferrer">Open source ↗</a>
+          </article>
+
+          <article class="source-card">
+            <span class="source-type">Maintenance/procurement record</span>
+            <h3>SJPNL — Agreement Year 2023–24 / 2024–25 Disclosure</h3>
+            <p>Procurement disclosure referenced for Gumma and Drabla maintenance/project-record review; verify current
+              file accessibility before publication.</p>
+            <a href="https://sjpnl.com/TenderProcurementFiles/2025/01/07Jan2025_11_43_24AM.pdf" target="_blank"
+              rel="noopener noreferrer">Open source ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-heading centered reveal-on-scroll">
+          <p class="section-tag">Contact Reference</p>
+          <h2>Department &amp; Public Utility References</h2>
+          <p>Local Drabla details are placeholders. SJPNL entries are public utility references and not necessarily
+            direct Drabla office contacts.</p>
+        </div>
+
+        <div class="contact-grid reveal-on-scroll">
+          <article class="contact-card">
+            <h3>Facility Placeholder</h3>
+            <dl class="contact-list">
+              <div>
+                <dt>Department</dt>
+                <dd>IPH / Jal Shakti Department – Drabla Gumma</dd>
+              </div>
+              <div>
+                <dt>Facility</dt>
+                <dd>Drabla Pumping Station</dd>
+              </div>
+              <div>
+                <dt>Scheme</dt>
+                <dd>LWSS Gumma – Bulk Water Supply</dd>
+              </div>
+              <div>
+                <dt>Region</dt>
+                <dd>Shimla, Himachal Pradesh</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="contact-card accent">
+            <h3>SJPNL Public Utility Reference</h3>
+            <dl class="contact-list">
+              <div>
+                <dt>Office</dt>
+                <dd>SJPNL, US Club, Shimla, Himachal Pradesh</dd>
+              </div>
+              <div>
+                <dt>Publicly listed numbers</dt>
+                <dd>8767198000 • 14420</dd>
+              </div>
+              <div>
+                <dt>Email</dt>
+                <dd><a href="mailto:info.sjpnl@gmail.com">info.sjpnl@gmail.com</a></dd>
+              </div>
+              <div>
+                <dt>Clarification</dt>
+                <dd>These are SJPNL public utility references and not necessarily the direct Drabla office contacts.
+                </dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>LWSS GUMMA</h2>
+        <p class="footer-subtitle">DRABLA PUMPING STATION</p>
+        <p>A research-based digital information portal for the Gumma / Drabla water-supply infrastructure.</p>
+      </div>
+
+      <nav aria-label="Footer quick links">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#water-system">Water System</a></li>
+          <li><a href="#machinery">Machinery</a></li>
+          <li><a href="#history">History</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ul>
+      </nav>
+
+      <div class="publication-checklist">
+        <h3>Publication Checklist</h3>
+        <ul>
+          <li>Verify current plant data</li>
+          <li>Add official contact details</li>
+          <li>Add official logo/branding</li>
+          <li>Add photo credits and dates</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="currentYear">2026</span> LWSS Gumma / Drabla Pumping Station portal.</span>
+      <span>Research draft for official review.</span>
+    </div>
+  </footer>
+
+  <button class="back-to-top-btn" id="backToTopBtn" type="button" aria-label="Back to top">↑</button>
+</body>
+
+</html>
