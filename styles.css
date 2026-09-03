@@ -613,7 +613,7 @@ dd {
 
 .key-facts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.5rem;
 }
 
@@ -846,7 +846,7 @@ dd {
 /* System Specifications Grid */
 .system-specs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 2rem;
   margin-top: 4rem;
 }
@@ -896,7 +896,7 @@ dd {
    -------------------------------------------------------------------------- */
 .machinery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 2rem;
 }
 
@@ -1034,7 +1034,7 @@ dd {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 1.75rem;
 }
 
@@ -1273,7 +1273,7 @@ dd {
    -------------------------------------------------------------------------- */
 .sources-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 1.75rem;
 }
 
@@ -1301,7 +1301,7 @@ dd {
    -------------------------------------------------------------------------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 2rem;
 }
 
@@ -1392,6 +1392,12 @@ dd {
   .facility-profile-card {
     position: static;
   }
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 768px) {
