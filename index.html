@@ -62,6 +62,7 @@
           <li><a class="nav-link active" href="#home">Home</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#water-system">Water System</a></li>
+          <li><a class="nav-link" href="#scada-dashboard">Live Telemetry</a></li>
           <li><a class="nav-link" href="#machinery">Machinery</a></li>
           <li><a class="nav-link" href="#history">History</a></li>
           <li><a class="nav-link" href="#gallery">Gallery</a></li>
@@ -91,8 +92,9 @@
             history and water-supply route connecting Gumma, Drabla, Craignano and the wider Shimla system.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#water-system">Explore the System <span aria-hidden="true">→</span></a>
-            <a class="btn btn-secondary" href="#gallery">View Facility Photos</a>
+            <a class="btn btn-primary" href="#scada-dashboard">Live SCADA Telemetry <span class="badge-live-pulse" aria-hidden="true">LIVE</span></a>
+            <a class="btn btn-secondary" href="#water-system">Explore System <span aria-hidden="true">→</span></a>
+            <a class="btn btn-outline" href="#gallery">Facility Photos</a>
           </div>
           <p class="research-note">Research-based content • Technical figures are labelled by source/date</p>
         </div>
@@ -259,6 +261,812 @@
             <span>Sanjauli</span>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCADA TELEMETRY & DIGITAL TWIN OPERATIONS CENTER
+         ========================================================================== -->
+    <section class="section scada-section" id="scada-dashboard" aria-labelledby="scada-title">
+      <div class="container">
+        <!-- Section Heading -->
+        <div class="section-heading centered reveal-on-scroll">
+          <p class="section-tag">
+            <span class="live-dot-pulse" aria-hidden="true"></span>
+            Live Digital Twin &amp; Telemetry
+          </p>
+          <h2 id="scada-title">Drabla Stage-II SCADA Operations &amp; Hydraulic Telemetry</h2>
+          <p>
+            Real-time simulated telemetry control desk monitoring Stage-II high-head multi-stage pumps,
+            rising main hydraulic pressures, active power consumption, and Himalayan elevation water balancing.
+          </p>
+        </div>
+
+        <!-- SCADA Top Status & Control Console -->
+        <div class="scada-console-panel reveal-on-scroll" aria-label="SCADA Control Console">
+          <div class="console-header-bar">
+            <div class="console-status-group">
+              <span class="status-indicator-pill online" id="scadaStatusPill">
+                <span class="ping-circle" aria-hidden="true"></span>
+                <span id="scadaStatusText">ONLINE • LIVE SIMULATION</span>
+              </span>
+              <span class="console-divider" aria-hidden="true">|</span>
+              <span class="console-clock" id="scadaClock">--:--:-- IST</span>
+              <span class="console-tag" id="scadaShift">SHIFT: 1ST (GENERAL)</span>
+            </div>
+
+            <div class="console-controls-group">
+              <div class="control-item">
+                <label for="selectScenario" class="control-label">Scenario Preset:</label>
+                <select id="selectScenario" class="scada-select" aria-label="Select simulation scenario">
+                  <option value="nominal" selected>Nominal Operation (21.4 MLD)</option>
+                  <option value="peak">Peak Transmission (24.0 MLD)</option>
+                  <option value="single">Single Pump Duty (10.7 MLD)</option>
+                  <option value="surge">High Suction Head (104 Bar Surge)</option>
+                  <option value="turbidity">Monsoon Inflow (High Turbidity Alert)</option>
+                </select>
+              </div>
+
+              <div class="control-item">
+                <span class="control-label">Sim Mode:</span>
+                <button type="button" class="btn-console active" id="btnToggleSimMode" aria-pressed="true"
+                  title="Toggle between automatic fluctuation and manual setpoint mode">
+                  Auto-Fluctuate: ON
+                </button>
+              </div>
+
+              <div class="control-item">
+                <span class="control-label">Speed:</span>
+                <div class="speed-btn-group" role="group" aria-label="Simulation speed">
+                  <button type="button" class="btn-speed active" data-speed="1">1x</button>
+                  <button type="button" class="btn-speed" data-speed="2">2x</button>
+                  <button type="button" class="btn-speed" data-speed="5">5x</button>
+                </div>
+              </div>
+
+              <div class="control-item action-buttons">
+                <button type="button" class="btn-console btn-danger" id="btnEmergencyTrip"
+                  title="Simulate emergency tripping of active pump sets">
+                  ⚡ Sim Trip
+                </button>
+                <button type="button" class="btn-console" id="btnResetTelemetry"
+                  title="Reset telemetry to baseline operational state">
+                  🔄 Reset
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI Telemetry Cards Grid -->
+        <div class="telemetry-kpi-grid reveal-on-scroll">
+          <!-- Flow Rate Card with Live Sparkline -->
+          <article class="telemetry-kpi-card" id="cardFlow">
+            <div class="kpi-head">
+              <span class="kpi-icon" aria-hidden="true">💧</span>
+              <div class="kpi-title-block">
+                <h3>Bulk Transmission Flow</h3>
+                <span class="kpi-sub">Stage-II to Craignano Ridge</span>
+              </div>
+              <span class="kpi-badge badge-normal" id="flowStatusBadge">NORMAL</span>
+            </div>
+            <div class="kpi-primary-val">
+              <span class="val-number" id="telemetryFlowMld">21.40</span>
+              <span class="val-unit">MLD</span>
+            </div>
+            <div class="kpi-secondary-row">
+              <span>Discharge: <strong id="telemetryFlowM3h">891.7</strong> m³/hr</span>
+              <span>Capacity: <strong id="telemetryFlowCapacityPct">88.9%</strong> of 24.06 MLD</span>
+            </div>
+            <!-- Live SVG Sparkline Chart -->
+            <div class="sparkline-container" aria-label="Live flow sparkline trend">
+              <svg id="flowSparklineSvg" viewBox="0 0 320 60" preserveAspectRatio="none" class="sparkline-svg">
+                <defs>
+                  <linearGradient id="flowGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0284C7" stop-opacity="0.45" />
+                    <stop offset="100%" stop-color="#0284C7" stop-opacity="0.0" />
+                  </linearGradient>
+                </defs>
+                <path id="sparklineArea" d="M 0 60 L 320 60 Z" fill="url(#flowGradient)" />
+                <path id="sparklinePath" d="M 0 30 L 320 30" fill="none" stroke="#0284C7" stroke-width="2.5" />
+                <circle id="sparklineDot" cx="316" cy="30" r="4" fill="#0284C7" />
+              </svg>
+              <div class="sparkline-labels">
+                <span>-45s</span>
+                <span>-30s</span>
+                <span>-15s</span>
+                <span>Live Now</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pressure & Hydraulic Head Card -->
+          <article class="telemetry-kpi-card" id="cardPressure">
+            <div class="kpi-head">
+              <span class="kpi-icon" aria-hidden="true">⏱️</span>
+              <div class="kpi-title-block">
+                <h3>Hydraulic Head &amp; Pressure</h3>
+                <span class="kpi-sub">Stage-II Rising Main (450mm MS)</span>
+              </div>
+              <span class="kpi-badge badge-normal" id="pressureSafetyBadge">NOMINAL</span>
+            </div>
+            <div class="kpi-primary-val">
+              <span class="val-number" id="telemetryDeliveryPressure">98.6</span>
+              <span class="val-unit">Bar</span>
+            </div>
+            <div class="kpi-secondary-row">
+              <span>Dynamic Head: <strong id="telemetryTotalHead">1,006</strong> m</span>
+              <span>Suction: <strong id="telemetrySuctionPressure">2.42</strong> Bar</span>
+            </div>
+            <div class="kpi-meter-bar">
+              <div class="meter-track">
+                <div class="meter-fill" id="pressureMeterFill" style="width: 82%;"></div>
+              </div>
+              <div class="meter-scale">
+                <span>0 Bar</span>
+                <span>Safe (90-105 Bar)</span>
+                <span>120 Bar Max</span>
+              </div>
+            </div>
+            <div class="kpi-stat-chip">
+              <span>Flow Velocity: <strong id="telemetryVelocity">1.56 m/s</strong> (Optimum 1.4 - 1.8)</span>
+            </div>
+          </article>
+
+          <!-- Electric Power Demand Card -->
+          <article class="telemetry-kpi-card" id="cardPower">
+            <div class="kpi-head">
+              <span class="kpi-icon" aria-hidden="true">⚡</span>
+              <div class="kpi-title-block">
+                <h3>Electric Power Demand</h3>
+                <span class="kpi-sub">Drabla 33kV / 11kV Substation Bus</span>
+              </div>
+              <span class="kpi-badge badge-normal" id="powerStatusBadge">OPTIMAL</span>
+            </div>
+            <div class="kpi-primary-val">
+              <span class="val-number" id="telemetryPowerKw">3,120</span>
+              <span class="val-unit">kW</span>
+            </div>
+            <div class="kpi-secondary-row">
+              <span>Specific Energy: <strong id="telemetrySecIndex">3.50</strong> kWh/kL</span>
+              <span>Grid Freq: <strong id="telemetryFrequency">50.02</strong> Hz</span>
+            </div>
+            <div class="kpi-meter-bar">
+              <div class="meter-track">
+                <div class="meter-fill power-fill" id="powerMeterFill" style="width: 66%;"></div>
+              </div>
+              <div class="meter-scale">
+                <span>0 kW</span>
+                <span>2 Units: ~3,120 kW</span>
+                <span>Max 4,680 kW</span>
+              </div>
+            </div>
+            <div class="kpi-stat-chip">
+              <span>Power Factor: <strong id="telemetryPowerFactor">0.94 Lagging</strong> (Capacitor Bank Active)</span>
+            </div>
+          </article>
+
+          <!-- Water Quality Telemetry Card -->
+          <article class="telemetry-kpi-card" id="cardQuality">
+            <div class="kpi-head">
+              <span class="kpi-icon" aria-hidden="true">🔬</span>
+              <div class="kpi-title-block">
+                <h3>Water Quality Monitoring</h3>
+                <span class="kpi-sub">Continuous Online Water Analyzer</span>
+              </div>
+              <span class="kpi-badge badge-normal" id="qualityStatusBadge">POTABLE SAFE</span>
+            </div>
+            <div class="kpi-primary-val">
+              <span class="val-number" id="telemetryTurbidity">1.60</span>
+              <span class="val-unit">NTU</span>
+            </div>
+            <div class="kpi-secondary-row">
+              <span>Free Chlorine: <strong id="telemetryChlorine">1.25</strong> mg/L</span>
+              <span>Raw pH: <strong id="telemetryPh">7.35</strong></span>
+            </div>
+            <div class="quality-mini-grid">
+              <div class="quality-box">
+                <span class="q-label">Water Temp</span>
+                <span class="q-val" id="telemetryTemp">13.8 °C</span>
+              </div>
+              <div class="quality-box">
+                <span class="q-label">Conductivity</span>
+                <span class="q-val" id="telemetryConductivity">218 µS/cm</span>
+              </div>
+              <div class="quality-box">
+                <span class="q-label">DO Saturation</span>
+                <span class="q-val" id="telemetryDo">8.9 mg/L</span>
+              </div>
+            </div>
+            <div class="kpi-stat-chip">
+              <span>Disinfection Status: <strong>Chlorination Active &amp; Verified</strong></span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Interactive Pump Station Control Deck -->
+        <div class="pump-station-deck reveal-on-scroll" aria-label="Pump Sets Control Bay">
+          <div class="deck-header">
+            <div>
+              <p class="deck-tag">Drabla Pump House Bay</p>
+              <h3>Multi-Stage Centrifugal Pump Sets (Pumps 1, 2, 3 &amp; 4)</h3>
+              <p class="deck-sub">
+                Click <strong>"Start / Stop"</strong> on any unit to simulate dynamic hydraulic and electrical load changes across the station in real time.
+              </p>
+            </div>
+            <div class="deck-summary-pill">
+              <span id="activePumpsCount">2 of 3</span> Units in Operation • <strong id="totalActiveHp">4,175 HP</strong> Connected
+            </div>
+          </div>
+
+          <div class="pumps-grid">
+            <!-- Pump 01 -->
+            <article class="pump-unit-card running" id="pumpCard1">
+              <div class="pump-card-top">
+                <div class="pump-title-wrap">
+                  <span class="pump-number">PUMP 01</span>
+                  <h4>Duty Unit • Stage-II</h4>
+                </div>
+                <span class="pump-status-badge running" id="pump1StatusBadge">RUNNING</span>
+              </div>
+
+              <!-- Animated Rotating Impeller Graphic -->
+              <div class="pump-visual-container">
+                <div class="impeller-disc spinning" id="impeller1" aria-hidden="true">
+                  <svg viewBox="0 0 100 100" class="impeller-svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="6 4" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="16" fill="currentColor"/>
+                    <path d="M 50 10 C 65 25, 65 40, 50 50 C 35 40, 35 25, 50 10 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M 90 50 C 75 65, 60 65, 50 50 C 60 35, 75 35, 90 50 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M 50 90 C 35 75, 35 60, 50 50 C 65 60, 65 75, 50 90 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M 10 50 C 25 35, 40 35, 50 50 C 40 65, 25 65, 10 50 Z" fill="currentColor" opacity="0.85"/>
+                  </svg>
+                </div>
+                <div class="pump-rpm-display">
+                  <span class="rpm-val" id="rpm1">1,485</span>
+                  <span class="rpm-label">RPM</span>
+                </div>
+              </div>
+
+              <dl class="pump-specs-list">
+                <div>
+                  <dt>Motor Load</dt>
+                  <dd id="kw1">1,560 kW</dd>
+                </div>
+                <div>
+                  <dt>Discharge</dt>
+                  <dd id="mld1">10.7 MLD</dd>
+                </div>
+                <div>
+                  <dt>Winding Temp</dt>
+                  <dd id="temp1">62.4 °C</dd>
+                </div>
+                <div>
+                  <dt>Discharge Valve</dt>
+                  <dd id="valve1">100% OPEN</dd>
+                </div>
+              </dl>
+
+              <div class="pump-controls">
+                <div class="throttle-wrap">
+                  <label for="sliderPump1">VFD Throttle (<span id="throttleVal1">100</span>%):</label>
+                  <input type="range" class="throttle-slider" id="sliderPump1" min="70" max="110" value="100" />
+                </div>
+                <button type="button" class="btn btn-pump-toggle btn-stop" id="btnTogglePump1" data-pump="1">
+                  Stop Unit 1
+                </button>
+              </div>
+            </article>
+
+            <!-- Pump 02 -->
+            <article class="pump-unit-card running" id="pumpCard2">
+              <div class="pump-card-top">
+                <div class="pump-title-wrap">
+                  <span class="pump-number">PUMP 02</span>
+                  <h4>Duty Unit • Stage-II</h4>
+                </div>
+                <span class="pump-status-badge running" id="pump2StatusBadge">RUNNING</span>
+              </div>
+
+              <!-- Animated Rotating Impeller Graphic -->
+              <div class="pump-visual-container">
+                <div class="impeller-disc spinning" id="impeller2" aria-hidden="true">
+                  <svg viewBox="0 0 100 100" class="impeller-svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="6 4" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="16" fill="currentColor"/>
+                    <path d="M 50 10 C 65 25, 65 40, 50 50 C 35 40, 35 25, 50 10 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M 90 50 C 75 65, 60 65, 50 50 C 60 35, 75 35, 90 50 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M 50 90 C 35 75, 35 60, 50 50 C 65 60, 65 75, 50 90 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M 10 50 C 25 35, 40 35, 50 50 C 40 65, 25 65, 10 50 Z" fill="currentColor" opacity="0.85"/>
+                  </svg>
+                </div>
+                <div class="pump-rpm-display">
+                  <span class="rpm-val" id="rpm2">1,480</span>
+                  <span class="rpm-label">RPM</span>
+                </div>
+              </div>
+
+              <dl class="pump-specs-list">
+                <div>
+                  <dt>Motor Load</dt>
+                  <dd id="kw2">1,560 kW</dd>
+                </div>
+                <div>
+                  <dt>Discharge</dt>
+                  <dd id="mld2">10.7 MLD</dd>
+                </div>
+                <div>
+                  <dt>Winding Temp</dt>
+                  <dd id="temp2">64.1 °C</dd>
+                </div>
+                <div>
+                  <dt>Discharge Valve</dt>
+                  <dd id="valve2">100% OPEN</dd>
+                </div>
+              </dl>
+
+              <div class="pump-controls">
+                <div class="throttle-wrap">
+                  <label for="sliderPump2">VFD Throttle (<span id="throttleVal2">100</span>%):</label>
+                  <input type="range" class="throttle-slider" id="sliderPump2" min="70" max="110" value="100" />
+                </div>
+                <button type="button" class="btn btn-pump-toggle btn-stop" id="btnTogglePump2" data-pump="2">
+                  Stop Unit 2
+                </button>
+              </div>
+            </article>
+
+            <!-- Pump 03 -->
+            <article class="pump-unit-card standby" id="pumpCard3">
+              <div class="pump-card-top">
+                <div class="pump-title-wrap">
+                  <span class="pump-number">PUMP 03</span>
+                  <h4>Hot Standby • Stage-II</h4>
+                </div>
+                <span class="pump-status-badge standby" id="pump3StatusBadge">STANDBY</span>
+              </div>
+
+              <!-- Animated Rotating Impeller Graphic -->
+              <div class="pump-visual-container">
+                <div class="impeller-disc idle" id="impeller3" aria-hidden="true">
+                  <svg viewBox="0 0 100 100" class="impeller-svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="6 4" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="16" fill="currentColor"/>
+                    <path d="M 50 10 C 65 25, 65 40, 50 50 C 35 40, 35 25, 50 10 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M 90 50 C 75 65, 60 65, 50 50 C 60 35, 75 35, 90 50 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M 50 90 C 35 75, 35 60, 50 50 C 65 60, 65 75, 50 90 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M 10 50 C 25 35, 40 35, 50 50 C 40 65, 25 65, 10 50 Z" fill="currentColor" opacity="0.85"/>
+                  </svg>
+                </div>
+                <div class="pump-rpm-display">
+                  <span class="rpm-val" id="rpm3">0</span>
+                  <span class="rpm-label">RPM</span>
+                </div>
+              </div>
+
+              <dl class="pump-specs-list">
+                <div>
+                  <dt>Motor Load</dt>
+                  <dd id="kw3">0 kW</dd>
+                </div>
+                <div>
+                  <dt>Discharge</dt>
+                  <dd id="mld3">0.0 MLD</dd>
+                </div>
+                <div>
+                  <dt>Winding Temp</dt>
+                  <dd id="temp3">24.2 °C (Amb)</dd>
+                </div>
+                <div>
+                  <dt>Discharge Valve</dt>
+                  <dd id="valve3">0% CLOSED</dd>
+                </div>
+              </dl>
+
+              <div class="pump-controls">
+                <div class="throttle-wrap">
+                  <label for="sliderPump3">VFD Throttle (<span id="throttleVal3">100</span>%):</label>
+                  <input type="range" class="throttle-slider" id="sliderPump3" min="70" max="110" value="100" disabled />
+                </div>
+                <button type="button" class="btn btn-pump-toggle btn-start" id="btnTogglePump3" data-pump="3">
+                  Start Unit 3
+                </button>
+              </div>
+            </article>
+
+            <!-- Pump 04 (Maintenance LOTO) -->
+            <article class="pump-unit-card maintenance" id="pumpCard4">
+              <div class="pump-card-top">
+                <div class="pump-title-wrap">
+                  <span class="pump-number">PUMP 04</span>
+                  <h4>Maintenance Bay (Bed 4)</h4>
+                </div>
+                <span class="pump-status-badge maintenance">LOTO OVERHAUL</span>
+              </div>
+
+              <div class="pump-visual-container">
+                <div class="loto-lock-icon" aria-hidden="true">🔒</div>
+                <div class="pump-rpm-display">
+                  <span class="rpm-val">ISOLATED</span>
+                  <span class="rpm-label">11kV Bus Tagged</span>
+                </div>
+              </div>
+
+              <dl class="pump-specs-list">
+                <div>
+                  <dt>Status</dt>
+                  <dd>Scheduled Overhaul</dd>
+                </div>
+                <div>
+                  <dt>Work Order</dt>
+                  <dd>WO-2026-DR-04</dd>
+                </div>
+                <div>
+                  <dt>Scope</dt>
+                  <dd>Impeller &amp; Sleeve</dd>
+                </div>
+                <div>
+                  <dt>Return Date</dt>
+                  <dd>Within 14 Days</dd>
+                </div>
+              </dl>
+
+              <div class="pump-controls">
+                <div class="loto-notice">
+                  <span>⚠️ Breaker locked out under safety protocol. Manual energization disabled.</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Dynamic Animated Reservoirs & Hydraulic Balancing -->
+        <div class="reservoirs-deck reveal-on-scroll" aria-label="Elevation Storage and Reservoir Balancing">
+          <div class="deck-header">
+            <div>
+              <p class="deck-tag">Hydraulic Storage Balancing</p>
+              <h3>Transmission Stage Balancing Reservoirs &amp; Sumps</h3>
+              <p class="deck-sub">
+                Live volumetric level tracking across the New Gumma intake, Drabla intermediate suction sump, and Craignano ridge terminal storage.
+              </p>
+            </div>
+            <div class="deck-summary-pill">
+              Buffer Flow Delta: <strong id="storageDeltaRate">+18.3 m³/hr</strong> (Stable Buffer)
+            </div>
+          </div>
+
+          <div class="reservoirs-grid">
+            <!-- Gumma Sump (650m MSL) -->
+            <article class="reservoir-card">
+              <div class="res-card-top">
+                <span class="res-stage-tag">STAGE I • INTAKE</span>
+                <span class="res-elevation">Elev: 650 m MSL</span>
+              </div>
+              <h4>New Gumma WTP Sump</h4>
+              <p class="res-note">Raw water clarification &amp; rapid gravity filter outlet sump</p>
+
+              <!-- Animated Tank Visual -->
+              <div class="tank-visual-wrapper">
+                <div class="tank-fill" id="gummaWaterFill" style="height: 78%;">
+                  <div class="tank-wave" aria-hidden="true"></div>
+                </div>
+                <div class="tank-capacity-indicator">
+                  <span class="tank-pct" id="gummaLevelPct">78.5%</span>
+                  <span class="tank-vol" id="gummaLevelKl">3,925 kL / 5,000 kL</span>
+                </div>
+              </div>
+
+              <div class="res-footer-stats">
+                <div>
+                  <span>Inflow:</span>
+                  <strong>910 m³/hr</strong>
+                </div>
+                <div>
+                  <span>Outflow:</span>
+                  <strong id="gummaOutflowM3">892 m³/hr</strong>
+                </div>
+              </div>
+            </article>
+
+            <!-- Drabla Sump (1,450m MSL) -->
+            <article class="reservoir-card highlighted-card">
+              <div class="res-card-top">
+                <span class="res-stage-tag active-stage">STAGE II • DRABLA</span>
+                <span class="res-elevation">Elev: 1,450 m MSL</span>
+              </div>
+              <h4>Drabla Balancing Sump</h4>
+              <p class="res-note">Intermediate suction buffer for Stage-II Craignano lift</p>
+
+              <!-- Animated Tank Visual -->
+              <div class="tank-visual-wrapper">
+                <div class="tank-fill" id="drablaWaterFill" style="height: 66%;">
+                  <div class="tank-wave" aria-hidden="true"></div>
+                </div>
+                <div class="tank-capacity-indicator">
+                  <span class="tank-pct" id="drablaLevelPct">66.2%</span>
+                  <span class="tank-vol" id="drablaLevelKl">1,655 kL / 2,500 kL</span>
+                </div>
+              </div>
+
+              <div class="res-footer-stats">
+                <div>
+                  <span>Stage-I In:</span>
+                  <strong id="drablaInflowM3">892 m³/hr</strong>
+                </div>
+                <div>
+                  <span>Stage-II Out:</span>
+                  <strong id="drablaOutflowM3">892 m³/hr</strong>
+                </div>
+              </div>
+            </article>
+
+            <!-- Craignano Reservoir (2,250m MSL) -->
+            <article class="reservoir-card">
+              <div class="res-card-top">
+                <span class="res-stage-tag">SUMMIT • CRAIGNANO</span>
+                <span class="res-elevation">Elev: 2,250 m MSL</span>
+              </div>
+              <h4>Craignano Ridge Reservoir</h4>
+              <p class="res-note">Terminal high-altitude summit reservoir feeding Sanjauli gravity line</p>
+
+              <!-- Animated Tank Visual -->
+              <div class="tank-visual-wrapper">
+                <div class="tank-fill" id="craignanoWaterFill" style="height: 81%;">
+                  <div class="tank-wave" aria-hidden="true"></div>
+                </div>
+                <div class="tank-capacity-indicator">
+                  <span class="tank-pct" id="craignanoLevelPct">81.0%</span>
+                  <span class="tank-vol" id="craignanoLevelKl">8,100 kL / 10,000 kL</span>
+                </div>
+              </div>
+
+              <div class="res-footer-stats">
+                <div>
+                  <span>Stage-II In:</span>
+                  <strong id="craignanoInflowM3">892 m³/hr</strong>
+                </div>
+                <div>
+                  <span>Gravity Shimla:</span>
+                  <strong>875 m³/hr</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Interactive GIS Topographic Elevation Profile & Route Schematic -->
+        <div class="gis-profile-deck reveal-on-scroll" aria-label="Himalayan Transmission Profile">
+          <div class="deck-header">
+            <div>
+              <p class="deck-tag">Himalayan Topographic Profile</p>
+              <h3>Interactive Hydraulic Lift Vector &amp; GIS Pipeline Elevation</h3>
+              <p class="deck-sub">
+                Click any waypoint node to view engineering details. Notice the dynamic pulsing water flow indicators moving along the pipeline route.
+              </p>
+            </div>
+            <div class="deck-summary-pill">
+              Total Static Head: <strong>1,600 Meters Lift</strong> (Gumma to Craignano)
+            </div>
+          </div>
+
+          <div class="gis-interactive-wrapper">
+            <!-- Dynamic SVG Elevation Graph with Flow Particles -->
+            <div class="elevation-svg-container">
+              <svg id="gisElevationSvg" viewBox="0 0 960 380" preserveAspectRatio="xMidYMid meet" class="elevation-svg">
+                <defs>
+                  <!-- Gradient for Terrain Elevation Fill -->
+                  <linearGradient id="terrainGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0284C7" stop-opacity="0.28" />
+                    <stop offset="60%" stop-color="#0284C7" stop-opacity="0.08" />
+                    <stop offset="100%" stop-color="#0284C7" stop-opacity="0.0" />
+                  </linearGradient>
+
+                  <!-- Filter for glowing pulse markers -->
+                  <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+
+                <!-- Grid Elevation Guidelines -->
+                <line x1="80" y1="60" x2="900" y2="60" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                <text x="70" y="65" font-size="11" fill="currentColor" opacity="0.6" text-anchor="end">2,400 m</text>
+
+                <line x1="80" y1="120" x2="900" y2="120" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                <text x="70" y="125" font-size="11" fill="currentColor" opacity="0.6" text-anchor="end">2,000 m</text>
+
+                <line x1="80" y1="200" x2="900" y2="200" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                <text x="70" y="205" font-size="11" fill="currentColor" opacity="0.6" text-anchor="end">1,400 m</text>
+
+                <line x1="80" y1="280" x2="900" y2="280" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                <text x="70" y="285" font-size="11" fill="currentColor" opacity="0.6" text-anchor="end">800 m</text>
+
+                <!-- Terrain Elevation Profile Polygon Area -->
+                <polygon points="120,305 380,195 680,85 860,105 860,340 120,340" fill="url(#terrainGrad)" />
+
+                <!-- Pipeline Route Path -->
+                <path id="pipelineRoutePath" d="M 120 305 L 380 195 L 680 85 L 860 105" fill="none" stroke="#0284C7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Animated Water Flow Pulse Beads -->
+                <circle class="pipeline-pulse-dot" r="5" fill="#06B6D4" filter="url(#glowFilter)">
+                  <animateMotion dur="4s" repeatCount="indefinite" path="M 120 305 L 380 195 L 680 85 L 860 105" />
+                </circle>
+                <circle class="pipeline-pulse-dot" r="5" fill="#06B6D4" filter="url(#glowFilter)">
+                  <animateMotion dur="4s" begin="1.3s" repeatCount="indefinite" path="M 120 305 L 380 195 L 680 85 L 860 105" />
+                </circle>
+                <circle class="pipeline-pulse-dot" r="5" fill="#06B6D4" filter="url(#glowFilter)">
+                  <animateMotion dur="4s" begin="2.6s" repeatCount="indefinite" path="M 120 305 L 380 195 L 680 85 L 860 105" />
+                </circle>
+
+                <!-- Station Hotspot Waypoints (Clickable) -->
+                <!-- Station 1: New Gumma WTP -->
+                <g class="map-station-node" id="nodeGumma" tabindex="0" role="button" aria-label="Inspect New Gumma Intake Station">
+                  <circle cx="120" cy="305" r="14" fill="#0284C7" fill-opacity="0.2" class="node-halo" />
+                  <circle cx="120" cy="305" r="7" fill="#0284C7" stroke="#ffffff" stroke-width="2.5" />
+                  <text x="120" y="332" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">NEW GUMMA</text>
+                  <text x="120" y="347" font-size="10" fill="currentColor" opacity="0.75" text-anchor="middle">650m MSL • Stage I</text>
+                </g>
+
+                <!-- Station 2: Drabla Pumping Station -->
+                <g class="map-station-node active" id="nodeDrabla" tabindex="0" role="button" aria-label="Inspect Drabla Pumping Station">
+                  <circle cx="380" cy="195" r="16" fill="#0D9488" fill-opacity="0.25" class="node-halo-pulse" />
+                  <circle cx="380" cy="195" r="8" fill="#0D9488" stroke="#ffffff" stroke-width="2.5" />
+                  <text x="380" y="172" font-size="12" font-weight="800" fill="#0D9488" text-anchor="middle">DRABLA PUMP HOUSE</text>
+                  <text x="380" y="157" font-size="10" font-weight="600" fill="currentColor" opacity="0.8" text-anchor="middle">1,450m MSL • Stage II (+800m)</text>
+                </g>
+
+                <!-- Station 3: Craignano Summit Reservoir -->
+                <g class="map-station-node" id="nodeCraignano" tabindex="0" role="button" aria-label="Inspect Craignano Ridge Reservoir">
+                  <circle cx="680" cy="85" r="14" fill="#0284C7" fill-opacity="0.2" class="node-halo" />
+                  <circle cx="680" cy="85" r="7" fill="#0284C7" stroke="#ffffff" stroke-width="2.5" />
+                  <text x="680" y="62" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">CRAIGNANO SUMMIT</text>
+                  <text x="680" y="47" font-size="10" fill="currentColor" opacity="0.75" text-anchor="middle">2,250m MSL • (+800m Lift)</text>
+                </g>
+
+                <!-- Station 4: Sanjauli Distribution -->
+                <g class="map-station-node" id="nodeSanjauli" tabindex="0" role="button" aria-label="Inspect Sanjauli Shimla Reservoir">
+                  <circle cx="860" cy="105" r="14" fill="#0284C7" fill-opacity="0.2" class="node-halo" />
+                  <circle cx="860" cy="105" r="7" fill="#0284C7" stroke="#ffffff" stroke-width="2.5" />
+                  <text x="860" y="132" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">SANJAULI / SHIMLA</text>
+                  <text x="860" y="147" font-size="10" fill="currentColor" opacity="0.75" text-anchor="middle">2,150m MSL • Gravity Feed</text>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Dynamic Station Details Drawer -->
+            <div class="gis-node-drawer" id="nodeDetailBox" aria-live="polite">
+              <div class="drawer-header">
+                <span class="drawer-tag" id="drawerTag">STAGE II INTERMEDIATE STATION</span>
+                <h4 id="drawerTitle">Drabla Pumping Station</h4>
+                <p class="drawer-elev" id="drawerElevation">Elevation: <strong>1,450 meters MSL</strong> (Coordinates: 31.185°N, 77.228°E)</p>
+              </div>
+              <p class="drawer-desc" id="drawerDesc">
+                Receives treated bulk water from New Gumma (650m) via Stage-I rising main. Accommodates 4 dedicated high-head multistage centrifugal pump sets (Pumps 1, 2, 3 on bed and Pump 4 maintenance bay) powered by 33kV dedicated feeders, lifting water an additional 800m static head toward Craignano ridge.
+              </p>
+              <div class="drawer-specs-grid" id="drawerSpecs">
+                <div>
+                  <span class="spec-lbl">Rising Main:</span>
+                  <span class="spec-val">450mm dia Mild Steel</span>
+                </div>
+                <div>
+                  <span class="spec-lbl">Design Lift:</span>
+                  <span class="spec-val">+800 Meters (+1,006m Dynamic)</span>
+                </div>
+                <div>
+                  <span class="spec-lbl">Installed Capacity:</span>
+                  <span class="spec-val">24.06 MLD Bulk Supply</span>
+                </div>
+                <div>
+                  <span class="spec-lbl">Commissioning:</span>
+                  <span class="spec-val">1981–82 Augmentation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Water & Energy Engineering Calculator -->
+        <div class="calculator-deck reveal-on-scroll" aria-label="Water and Energy Calculator">
+          <div class="deck-header">
+            <div>
+              <p class="deck-tag">Engineering Utility Tool</p>
+              <h3>Pumping Hydraulic &amp; Electricity Cost Calculator</h3>
+              <p class="deck-sub">
+                Adjust daily operating hours, discharge throughput, and electricity tariff to instantly compute total water transmission, power demand, and monthly energy expenditure.
+              </p>
+            </div>
+          </div>
+
+          <div class="calc-container-grid">
+            <!-- Inputs Panel -->
+            <div class="calc-inputs-panel">
+              <div class="calc-field">
+                <div class="calc-label-row">
+                  <label for="calcHours">Daily Pumping Duration:</label>
+                  <span class="calc-val-badge"><strong id="calcHoursVal">20.0</strong> Hours/Day</span>
+                </div>
+                <input type="range" class="calc-slider" id="calcHours" min="1" max="24" step="0.5" value="20" />
+                <div class="slider-scale">
+                  <span>1 hr</span>
+                  <span>12 hrs</span>
+                  <span>24 hrs (Continuous)</span>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <div class="calc-label-row">
+                  <label for="calcFlowRate">Target Discharge Rate:</label>
+                  <span class="calc-val-badge"><strong id="calcFlowVal">21.4</strong> MLD</span>
+                </div>
+                <input type="range" class="calc-slider" id="calcFlowRate" min="5" max="24.06" step="0.2" value="21.4" />
+                <div class="slider-scale">
+                  <span>5 MLD</span>
+                  <span>15 MLD</span>
+                  <span>24.06 MLD (Full Scheme)</span>
+                </div>
+              </div>
+
+              <div class="calc-field-row">
+                <div class="calc-field-half">
+                  <label for="calcTariff">Grid Tariff (₹ / kWh):</label>
+                  <div class="input-with-affix">
+                    <span class="affix">₹</span>
+                    <input type="number" class="calc-num-input" id="calcTariff" min="1" max="20" step="0.25" value="5.80" />
+                  </div>
+                </div>
+
+                <div class="calc-field-half">
+                  <label for="calcActivePumps">Active Pump Units:</label>
+                  <select id="calcActivePumps" class="calc-num-input">
+                    <option value="1">1 Unit (1,560 kW)</option>
+                    <option value="2" selected>2 Units (3,120 kW)</option>
+                    <option value="3">3 Units (4,680 kW)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Computed Results Outputs -->
+            <div class="calc-results-panel">
+              <div class="calc-metric-card highlighted">
+                <span class="c-label">Projected Daily Water Delivered</span>
+                <div class="c-val-group">
+                  <strong class="c-main-val" id="resDailyVolumeMld">17.83</strong>
+                  <span class="c-unit">Million Litres / Day</span>
+                </div>
+                <span class="c-sub" id="resDailyGallons">≈ 3.92 Million Imperial Gallons (17,833 kL)</span>
+              </div>
+
+              <div class="calc-metric-card">
+                <span class="c-label">Daily Electric Energy Consumed</span>
+                <div class="c-val-group">
+                  <strong class="c-main-val" id="resDailyEnergyKwh">62,400</strong>
+                  <span class="c-unit">kWh (Units)</span>
+                </div>
+                <span class="c-sub" id="resDailyMwh">≈ 62.40 MWh @ 3.50 kWh/kL Specific Energy</span>
+              </div>
+
+              <div class="calc-metric-card">
+                <span class="c-label">Estimated Electricity Expenditure</span>
+                <div class="c-val-group">
+                  <strong class="c-main-val" id="resDailyCostInr">₹3,61,920</strong>
+                  <span class="c-unit">per Day</span>
+                </div>
+                <span class="c-sub" id="resMonthlyCostLakhs">Monthly: <strong>₹1.08 Crore</strong> (₹108.5 Lakhs / mo)</span>
+              </div>
+
+              <div class="calc-metric-card">
+                <span class="c-label">Estimated Carbon Emission Footprint</span>
+                <div class="c-val-group">
+                  <strong class="c-main-val" id="resCarbonKg">51,168</strong>
+                  <span class="c-unit">kg CO₂e / day</span>
+                </div>
+                <span class="c-sub">Based on 0.82 kg CO₂/kWh grid emission factor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 

@@ -1449,3 +1449,1099 @@ dd {
     gap: 0.25rem;
   }
 }
+
+/* ==========================================================================
+   SCADA Telemetry & Operations Center Styles
+   ========================================================================== */
+
+/* Hero live badge */
+.badge-live-pulse {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  padding: 0.15rem 0.5rem;
+  background: #EF4444;
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+  animation: pulseBadge 1.8s infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+.live-dot-pulse {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #10B981;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  box-shadow: 0 0 8px #10B981;
+  animation: radarBlink 1.5s infinite;
+}
+
+@keyframes radarBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* SCADA Section Base */
+.scada-section {
+  background: var(--bg-main);
+  position: relative;
+  overflow: hidden;
+}
+
+/* SCADA Console Top Bar */
+.scada-console-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.console-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.console-status-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.status-indicator-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.status-indicator-pill.online {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-indicator-pill.alert {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.status-indicator-pill.trip {
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.ping-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.console-divider {
+  color: var(--border);
+}
+
+.console-clock {
+  font-family: monospace, var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background: var(--bg-alt);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.console-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.console-controls-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.control-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.scada-select {
+  background: var(--bg-input);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.scada-select:focus {
+  border-color: var(--primary);
+}
+
+.btn-console {
+  background: var(--bg-alt);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-console:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-console.active {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+}
+
+.btn-console.btn-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-console.btn-danger:hover {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+.speed-btn-group {
+  display: flex;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.btn-speed {
+  background: var(--bg-input);
+  border: none;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-speed.active {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+
+/* KPI Telemetry Cards Grid */
+.telemetry-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.telemetry-kpi-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.telemetry-kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-border);
+}
+
+.kpi-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.kpi-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.kpi-title-block {
+  flex: 1;
+}
+
+.kpi-title-block h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.15rem 0;
+  color: var(--text-main);
+}
+
+.kpi-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.kpi-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+}
+
+.badge-normal {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+}
+
+.badge-alarm {
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+}
+
+.kpi-primary-val {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.val-number {
+  font-family: var(--font-heading);
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.val-unit {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.kpi-secondary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Sparkline SVG styling */
+.sparkline-container {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.sparkline-svg {
+  width: 100%;
+  height: 54px;
+  overflow: visible;
+}
+
+.sparkline-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Meter Bar */
+.kpi-meter-bar {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.meter-track {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0284C7, #06B6D4);
+  border-radius: var(--radius-full);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.meter-fill.power-fill {
+  background: linear-gradient(90deg, #F59E0B, #EF4444);
+}
+
+.meter-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+}
+
+.kpi-stat-chip {
+  margin-top: 0.75rem;
+  background: var(--bg-alt);
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.quality-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+.quality-box {
+  background: var(--bg-alt);
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.q-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.q-val {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Pump Station Control Deck */
+.pump-station-deck,
+.reservoirs-deck,
+.gis-profile-deck,
+.calculator-deck {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.25rem;
+}
+
+.deck-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.deck-header h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 0.35rem 0;
+}
+
+.deck-sub {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0;
+}
+
+.deck-summary-pill {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* Pumps Grid */
+.pumps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 1.5rem;
+}
+
+.pump-unit-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.pump-unit-card.running {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.08);
+}
+
+.pump-unit-card.standby {
+  border-color: rgba(2, 132, 199, 0.3);
+}
+
+.pump-unit-card.maintenance {
+  border-color: rgba(245, 158, 11, 0.3);
+  opacity: 0.88;
+}
+
+.pump-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.pump-number {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+}
+
+.pump-title-wrap h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.15rem 0 0 0;
+  color: var(--text-main);
+}
+
+.pump-status-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.04em;
+}
+
+.pump-status-badge.running {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+}
+
+.pump-status-badge.standby {
+  background: rgba(2, 132, 199, 0.15);
+  color: var(--primary);
+}
+
+.pump-status-badge.maintenance {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+}
+
+.pump-visual-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.impeller-disc {
+  width: 58px;
+  height: 58px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.impeller-disc.spinning {
+  animation: rotateImpeller 1s linear infinite;
+}
+
+.impeller-disc.idle {
+  color: var(--text-muted);
+}
+
+@keyframes rotateImpeller {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loto-lock-icon {
+  font-size: 2.2rem;
+  color: #F59E0B;
+}
+
+.pump-rpm-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.rpm-val {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.rpm-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.pump-specs-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  margin: 0 0 1.25rem 0;
+}
+
+.pump-specs-list dt {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.pump-specs-list dd {
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0.1rem 0 0 0;
+}
+
+.pump-controls {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.throttle-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.throttle-wrap label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.throttle-slider,
+.calc-slider {
+  width: 100%;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.btn-pump-toggle {
+  width: 100%;
+  padding: 0.55rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-pump-toggle.btn-stop {
+  background: rgba(239, 68, 68, 0.12);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.btn-pump-toggle.btn-stop:hover {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+.btn-pump-toggle.btn-start {
+  background: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+}
+
+.btn-pump-toggle.btn-start:hover {
+  background: var(--primary-hover);
+}
+
+.loto-notice {
+  font-size: 0.75rem;
+  color: #D97706;
+  background: rgba(245, 158, 11, 0.1);
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+/* Reservoirs Deck */
+.reservoirs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
+}
+
+.reservoir-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.reservoir-card.highlighted-card {
+  border-color: var(--border-strong);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.res-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.res-stage-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.res-stage-tag.active-stage {
+  color: var(--primary);
+}
+
+.res-elevation {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.reservoir-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-main);
+}
+
+.res-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+/* Animated Tank Visual */
+.tank-visual-wrapper {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.tank-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #06B6D4 0%, #0284C7 100%);
+  position: relative;
+  transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tank-wave {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: radial-gradient(circle at 50% 100%, #38BDF8 40%, transparent 70%);
+  opacity: 0.8;
+  animation: tankWaveMotion 2s ease-in-out infinite alternate;
+}
+
+@keyframes tankWaveMotion {
+  from { transform: translateY(-2px); }
+  to { transform: translateY(2px); }
+}
+
+.tank-capacity-indicator {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+.tank-pct {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #FFFFFF;
+}
+
+.tank-vol {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.res-footer-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: auto;
+}
+
+/* Interactive GIS Elevation Deck */
+.gis-interactive-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.elevation-svg-container {
+  width: 100%;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.elevation-svg {
+  width: 100%;
+  min-width: 600px;
+  height: auto;
+  display: block;
+}
+
+.map-station-node {
+  cursor: pointer;
+  outline: none;
+  transition: transform var(--transition-fast);
+}
+
+.map-station-node:hover,
+.map-station-node:focus-visible {
+  transform: scale(1.08);
+}
+
+.node-halo-pulse {
+  animation: haloPulse 2s infinite;
+}
+
+@keyframes haloPulse {
+  0%, 100% { r: 16px; opacity: 0.25; }
+  50% { r: 22px; opacity: 0.45; }
+}
+
+.gis-node-drawer {
+  background: var(--bg-surface);
+  border: 1px solid var(--primary-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.drawer-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+}
+
+.drawer-header h4 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0.2rem 0;
+}
+
+.drawer-elev {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem 0;
+}
+
+.drawer-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.drawer-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 1rem;
+  background: var(--bg-alt);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+}
+
+.spec-lbl {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.spec-val {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Calculator Deck */
+.calc-container-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .calc-container-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-inputs-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: var(--bg-alt);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.calc-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calc-label-row label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.calc-val-badge {
+  font-size: 0.85rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+}
+
+.slider-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.calc-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.calc-field-half {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.calc-field-half label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.input-with-affix {
+  display: flex;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0 0.5rem;
+}
+
+.affix {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.calc-num-input {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  outline: none;
+}
+
+.input-with-affix .calc-num-input {
+  border: none;
+}
+
+.calc-results-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .calc-results-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-metric-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calc-metric-card.highlighted {
+  background: var(--bg-surface);
+  border-color: var(--primary-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.c-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.c-val-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+
+.c-main-val {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.c-unit {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.c-sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
