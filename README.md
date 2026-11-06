@@ -1,11 +1,31 @@
 # LWSS Gumma & Drabla Pumping Station Portal
 
 > **Lift Water Supply Scheme (LWSS) Gumma — Second Stage Pumping, New Gumma Line**  
-> Documentation, Interactive Himalayan GIS Elevation Profile, and Real-Time SCADA Operations Simulator.
+> Complete Technical Documentation, Interactive Himalayan GIS Elevation Profile, and Real-Time SCADA Operations Simulator.
 
-[![Status](https://img.shields.io/badge/Status-Live%20Simulation-success.svg)](#)
-[![Stack](https://img.shields.io/badge/Stack-Vanilla%20HTML5%20%7C%20CSS3%20%7C%20ES6%2B-blue.svg)](#)
-[![License](https://img.shields.io/badge/License-Government%20Documentation%20Reference-lightgrey.svg)](#)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-lwss--gumma--project.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://lwss-gumma-project.vercel.app/)
+[![Status](https://img.shields.io/badge/Status-Live%20Simulation-success.svg?style=for-the-badge)](#)
+[![Stack](https://img.shields.io/badge/Stack-Vanilla%20HTML5%20%7C%20CSS3%20%7C%20ES6%2B-blue.svg?style=for-the-badge)](#)
+
+---
+
+> 🚀 **Live Web Application:** [https://lwss-gumma-project.vercel.app/](https://lwss-gumma-project.vercel.app/)  
+> Open the link above in any web browser to interact with the real-time SCADA telemetry simulator, 4-pump bay controls, dynamic reservoir balancing, and GIS topographic profile.
+
+---
+
+## 🌐 Live Deployment & How Users Find It
+
+Users visiting this repository can access the live application through any of the following:
+
+1. **Top Repository Badge & Header Link**: Click the **Live Demo (Vercel)** badge or direct link at the top of this `README.md`.
+2. **GitHub Repository "About" Section (Recommended)**:  
+   On the right sidebar of the GitHub repository page ([github.com/hideepaksharma5-create/Lwss-Gumma-project](https://github.com/hideepaksharma5-create/Lwss-Gumma-project)), repository owners can set the **Website URL** so it appears prominently for every visitor:
+   - Click the ⚙️ **gear icon** next to **"About"** on the right sidebar.
+   - In the **Website** field, enter: `https://lwss-gumma-project.vercel.app/`
+   - Check the **"Use your GitHub Pages website"** or save your custom URL.
+   - Click **Save changes**. The live link will now display right below the repository description!
+3. **In-App Utility Bar & Footer**: Both the live website header bar and footer include verified links back to the production deployment.
 
 ---
 
@@ -67,7 +87,7 @@ Lwss-Gumma-project/
 ├── index.html       # Full portal structure & SCADA markup
 ├── styles.css       # Design system, industrial SCADA styling, keyframe animations
 ├── script.js        # Reactive telemetry engine, sparklines, reservoir physics, GIS drawer
-├── README.md        # Comprehensive project documentation
+├── README.md        # Comprehensive project documentation & live deploy link
 ├── README.txt       # Technical audit notes & reference documentation
 └── images/          # Supplied site photography & engineering flowcharts
 ```
@@ -90,14 +110,17 @@ Then visit `http://localhost:8000` in your browser.
 
 ---
 
-## 🌐 Deploy to GitHub Pages
+## 🌐 Deploy Options
 
-To host this site live on GitHub:
+### 1. Vercel (Current Production)
+The production site is continuously deployed on Vercel at:  
+👉 **[https://lwss-gumma-project.vercel.app/](https://lwss-gumma-project.vercel.app/)**
+
+### 2. GitHub Pages (Alternative Static Host)
+To also enable GitHub Pages:
 1. Navigate to **Repository Settings** → **Pages**.
 2. Under **Build and deployment** > **Source**, choose **Deploy from a branch**.
 3. Select `main` branch and `/ (root)` folder, then click **Save**.
-4. The live site will be published at:  
-   `https://<your-username>.github.io/Lwss-Gumma-project/`
 
 ---
 
