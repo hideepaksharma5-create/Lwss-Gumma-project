@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 8080;
+const PREFERRED_PORTS = [3000, 8080, 8000, 5500];
 const PUBLIC_DIR = __dirname;
 
 const MIME_TYPES = {
@@ -53,7 +53,27 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-  console.log(`Press Ctrl+C to stop.`);
+let portIndex = 0;
+function startServer() {
+  const port = process.env.PORT || PREFERRED_PORTS[portIndex];
+  server.listen(port, () => {
+    console.log(`\n=================================================`);
+    console.log(`🚀 LWSS Gumma Portal is running!`);
+    console.log(`👉 Open: http://localhost:${port}/`);
+    console.log(`=================================================\n`);
+    console.log(`Press Ctrl+C to stop.`);
+  });
+}
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE' && !process.env.PORT && portIndex < PREFERRED_PORTS.length - 1) {
+    console.log(`Port ${PREFERRED_PORTS[portIndex]} is in use or reserved by Windows.`);
+    portIndex++;
+    console.log(`Retrying on port ${PREFERRED_PORTS[portIndex]}...`);
+    setTimeout(startServer, 200);
+  } else {
+    console.error('Server error:', err);
+  }
 });
+
+startServer();

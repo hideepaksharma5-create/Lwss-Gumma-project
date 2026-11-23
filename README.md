@@ -106,7 +106,7 @@ Simply open `index.html` in any modern web browser (Chrome, Edge, Firefox, Safar
 # In the repository root directory:
 node server.js
 ```
-Then visit `http://localhost:8080` in your browser.
+Then visit `http://localhost:3000` in your browser.
 
 ### Option 3: Docker Container (Nginx)
 Using Docker Compose:
@@ -116,9 +116,9 @@ docker compose up -d --build
 Or using Docker CLI directly:
 ```bash
 docker build -t lwss-gumma-portal .
-docker run -d -p 8080:80 --name lwss-gumma-portal lwss-gumma-portal
+docker run -d -p 3000:80 --name lwss-gumma-portal lwss-gumma-portal
 ```
-Then visit `http://localhost:8080` in your browser.
+Then visit `http://localhost:3000` in your browser.
 
 To stop the container:
 ```bash
