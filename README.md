@@ -101,12 +101,31 @@ Because this portal is built with native web technologies, **no build step, pack
 ### Option 1: Direct File
 Simply open `index.html` in any modern web browser (Chrome, Edge, Firefox, Safari).
 
-### Option 2: Local HTTP Server (Python)
+### Option 2: Local HTTP Server (Node.js)
 ```bash
 # In the repository root directory:
-python -m http.server 8000
+node server.js
 ```
-Then visit `http://localhost:8000` in your browser.
+Then visit `http://localhost:8080` in your browser.
+
+### Option 3: Docker Container (Nginx)
+Using Docker Compose:
+```bash
+docker compose up -d --build
+```
+Or using Docker CLI directly:
+```bash
+docker build -t lwss-gumma-portal .
+docker run -d -p 8080:80 --name lwss-gumma-portal lwss-gumma-portal
+```
+Then visit `http://localhost:8080` in your browser.
+
+To stop the container:
+```bash
+docker compose down
+# or
+docker stop lwss-gumma-portal && docker rm lwss-gumma-portal
+```
 
 ---
 

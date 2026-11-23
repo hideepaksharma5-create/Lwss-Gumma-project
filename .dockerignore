@@ -1,0 +1,9 @@
+.git
+.gitignore
+.gemini
+README.md
+README.txt
+server.js
+Dockerfile
+docker-compose.yml
+.dockerignore
